@@ -6,8 +6,6 @@ const inputSearch = document.querySelector('input#inputSearch')
 
 titulo.innerText = 'MATEAR'
 
-
-
 const cardProductosHTML = (prod)=> {
     return `<div class="div-card" >
     <div class="imagen"><img src= "${prod.imagen}"></div>
