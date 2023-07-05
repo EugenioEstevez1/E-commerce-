@@ -1,0 +1,7 @@
+[{ "codigo": "1", "nombre": "Mate de madera", "importe": 3000, "imagen":"images/matedemadera.png", "categoria":"mate"},
+{ "codigo": "2", "nombre": "Mate de vidrio", "importe": 2000, "imagen": "images/matedevidrio.png", "categoria":"mate"  },
+{ "codigo": "5", "nombre": "Termo Stanley", "importe": 20000, "imagen": "images/termostanley.png", "categoria":"termo" },
+{ "codigo": "6", "nombre": "Termo Montagne", "importe": 22000, "imagen": "images/termomontagne.png", "categoria":"termo" },
+{ "codigo": "8", "nombre": "Bombilla acero", "importe": 1500, "imagen": "images/bombillaacero.png", "categoria":"bombilla" },
+ { "codigo": "9", "nombre": "Bombilla alpaca", "importe": 2000, "imagen": "images/bombillaalpaca.png", "categoria":"bombilla" }
+]

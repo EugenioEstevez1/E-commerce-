@@ -18,9 +18,44 @@ if (carritoProductos.length > 0){
     })
 }
 
-document.querySelector("#eliminar").addEventListener("click", (e) => {
+document.querySelector("#clave").addEventListener("click", (e) => {
     target = e.target;
-    if (target.classList.contains("delete")) {
-        target.parentElement.parentElement.remove();
+    target.classList.contains("delete") ? target.parentElement.parentElement.remove() : null
+  
+  });
+  
+  function eliminarElementoCarrito(clave) {
+    if (typeof Storage !== "undefined") {
+      let carrito = JSON.parse(localStorage.getItem("miCarrito")) || [];
+      let indice = carrito.findIndex(item => item.clave === clave);
+      indice !== -1 ? (carrito.splice(indice, 1), localStorage.setItem("miCarrito", JSON.stringify(carrito))) : null;
     }
-});
+  
+  }
+  
+  document.querySelector("#clave").addEventListener("click", (e) => {
+    let target = e.target;
+    if (target.classList.contains("delete")) {
+      let clave = target.parentElement.parentElement.dataset.clave;
+      eliminarElementoCarrito(clave);
+      mensajeToast()
+  
+  
+    }
+  });
+  
+  function mensajeToast() {
+    Toastify({
+      text: `Se eliminó el producto del carrito.`,
+      duration: 1500,
+      close: true,
+      gravity: "bottom",
+      position: "right",
+      stopOnFocus: true,
+      style: {
+        background: "red",
+        color: "white",
+      }
+    }).showToast();
+  }
+  

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/variables.js"></script>
     <script defer src="js/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
 
 <body>
@@ -22,11 +24,22 @@
         </div>
     </header>
     <main>
-        <input type="search" id="inputSearch" placeholder="🔍 Nombre del producto a buscar"
-            style="width: 500px; height:50px;margin-left:35%; box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.519); margin-bottom: 100px;">
+
+        <div>
+            <label style="margin-top: 100px;" for="categoria">Selecciona una categoría:</label>
+            <select style="width: 400px;" id="categoria">
+                <option value="">Todas las categorias</option>
+                <option value="mate">Mates</option>
+                <option value="termo">Termos</option>
+                <option value="bombilla">Bombillas</option>
+            </select>
+            <button onclick="filtrarProductos()">Filtrar</button>
+        </div>
+
+        <div id="resultados"></div>
+
         <table>
-            <div id="div-productos">
-            </div>
+            <div id="div-productos"></div>
         </table>
     </main>
     <footer>
