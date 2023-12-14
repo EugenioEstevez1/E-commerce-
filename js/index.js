@@ -1,18 +1,17 @@
 
-const titulo = document.getElementById('titulo');
 const logo = document.querySelector('#logo');
 const tableBody = document.querySelector('#div-productos');
 const inputSearch = document.querySelector('#inputSearch');
 const selectCategoria = document.getElementById('categoria');
 
-let productosFiltrados = []; 
+let productosFiltrados = [];
 
 function obtenerProductos() {
     fetch(array)
         .then((respuesta) => respuesta.json())
         .then((datos) => {
             arrayProductos.push(...datos);
-            productosFiltrados = [...arrayProductos]; 
+            productosFiltrados = [...arrayProductos];
         })
         .then(() => cargarProductos())
         .catch((error) => console.error('Error al mostrar datos', error));
@@ -20,7 +19,6 @@ function obtenerProductos() {
 
 obtenerProductos();
 
-titulo.innerText = 'MATEAR';
 
 const cardProductosHTML = (prod) => {
     return `<div class="div-card" >
@@ -39,22 +37,14 @@ function cargarProductos() {
     activarClickEnBotones();
 }
 
-function actualizarResultados() {
-    tableBody.innerHTML = '';
-    productosFiltrados.forEach((producto) => {
-        tableBody.innerHTML += cardProductosHTML(producto);
-    });
-    activarClickEnBotones();
-}
-
 function filtrarProductos() {
     const categoriaSeleccionada = selectCategoria.value;
     if (categoriaSeleccionada === '') {
-        productosFiltrados = [...arrayProductos]; 
+        productosFiltrados = [...arrayProductos];
     } else {
         productosFiltrados = arrayProductos.filter((producto) => producto.categoria === categoriaSeleccionada);
     }
-    actualizarResultados();
+    cargarProductos()
 }
 
 function activarClickEnBotones() {
